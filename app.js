@@ -6,7 +6,7 @@ if (process.argv[2] == null || process.argv[2] == undefined) {
     return;
 }
 
-geocode.getGeoCode(process.argv[2], (err, { latitude, longitude, location }) => {
+geocode.getGeoCode(process.argv[2], (err, { latitude, longitude, location } = {}) => {
     if (err) return console.log('error ', err);
     forecast.getForeCast(latitude, longitude, (err, response) => {
         if (err) console.log('error ', err);
